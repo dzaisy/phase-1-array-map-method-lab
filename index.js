@@ -11,6 +11,16 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
-}
+const capFirstLet = word => {
+  return word.charAt(0).toUpperCase() + word.slice(1); // finds the 1st letter of the word, capitalises it, and returns the rest of the string
+};
+
+const titleCase = title => {
+  const words = title.split(' '); // split the title into words
+  const capitalisedWords = words.map(capFirstLet); // applies capFirstLet function to every single string in tutorials
+  return capitalisedWords.join(' '); // join the words back together
+};
+
+const titleCased = () => { // title case all titles in the tutorials array
+  return tutorials.map(titleCase);
+};
